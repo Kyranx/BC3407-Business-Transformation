@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    
+<head>
+   <title>Hazard Predictor</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="Documents/GitHub/BC3407-Businesss-Transformation/hazardmania/stylesheets/styles.css">
+    <script type = "text/javascript" src = "javascript/function.js"></script>
+</head>
+    
+<body>
+    <script src="javascript.js"></script>
+    <nav>
+        <ul class="topnav" id="dropdown_navigation">
+            <li class="dropdown_icon"><a href="javascript:void(0);" onclick="dropdownMenu()">&#9776;</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li class="topnav-right"><a href="#signup">Sign Up</a></li>
+            <li class="topnav-right"><a href="#signin">Sign In</a></li>
+        </ul>
+    </nav>
+    <hr class="line1">
+    <div class="container" id="section-1-gradient">
+        <div class="row">
+            <div class="col-6">
+                <div>
+                    <h1 class="main_header">Welcome to Squirrelly!</h1>
+                    <h1 class="sub_header">How may we assist you today?</h1>
+                </div>
+                <form>
+                    <div class="leftSide-col">
+                        <h2 class= "userpw_header">Username</h2>
+                        <input class="userpw_box" name= "username" type="text" placeholder="Email or username">
+                        <h2 class= "userpw_header">Password</h2>
+                        <input class="userpw_box" name="password" type="password" placeholder="Enter your password">
+                    </div>
+                </form>
+            </div>
+            <div class="col-6">
+                <div class="top_video">
+                    <div class="video_container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/Af_d0qrsBtk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <header>
+        <h1 class="header_middle">Squirrelly's Body Page</h1>
+    </header>
+    
+    
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="box">
+                    <div class="icon">    
+                        <img src="images/favicon.ico">
+                    </div>
+                    <label>Chat with Me</label>
+                    <p class="box_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <button class="learn_more">Learn More</button>
+            </div>
+            <div class="col-4">
+                <div class="box">
+                    <div class="icon">    
+                        <img src="images/favicon.ico">
+                    </div>
+                    <label>Machine Learning</label>
+                    <p class="box_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <button class="learn_more">Learn More</button>
+            </div>
+            <div class="col-4">
+                <div class="box">
+                    <div class="icon">    
+                        <img src="images/favicon.ico">
+                    </div>
+                    <label>Dashboards</label>
+                    <p class="box_text">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </p>
+                </div>
+                <button class="learn_more">Learn More</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <hr>
+    
+    
+    
+    
+    <div class="container">
+        <div class="row">
+        <div class ="col-7">
+            <article> 
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </article>
+        </div>
+        <div class="col-5">
+            <div class="line_image">
+                <img src="images/1.png" class="image1">
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <footer class="footer_main">
+        <div class="row">
+            <div class="col-3 mobilestack">
+                <h1>Company</h1>
+                <ul>
+                    <li>About</li>
+                    <li>Blogs</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div class="col-3 mobilestack">
+                <h1>Company</h1>
+                <ul>
+                    <li>About</li>
+                    <li>Blogs</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div class="col-3 mobilestack">
+                <h1>Company</h1>
+                <ul>
+                    <li>About</li>
+                    <li>Blogs</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div class="col-3 mobilestack">
+                <h1>Company</h1>
+                <ul>
+                    <li>About</li>
+                    <li>Blogs</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function dropdownMenu() {
+        var x = document.getElementById("dropdown_navigation");
+        if (x.className === "topnav") {
+                x.className += " responsive";
+            /*change topnav to topnav.responsive */
+            } else {
+                x.className = "topnav";
+            }
+        }
+    </script>
+    
+
+
+
+    
+    
+    
+    
+    
+<!--
+    
+<script>
+    const x2 = () => {
+        const a = prompt("What is 2+3?");
+        if (a == 5) {
+            return true;
+        }
+        else {
+            return false;
+        };
+    }
+    document.getElementById('demo2').innerHTML = x2()
+
+</script>    
+-->
+    
+    <p>X is what % of Y?</p>
+    <form>
+        <input type = "text" id = "numField1"> is what % of
+        <input type = "text" id="numField2">? <br><br>
+        <input type = "submit" value = "Calculate" id = "resultField">
+    </form>
+    <h3>Result: 100%</h3>
+    
+    <script type = "text/javascript" = src = "javascript/function.js"></script>
+    
+    
+</body>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</html>
