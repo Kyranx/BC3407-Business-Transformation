@@ -65,26 +65,32 @@ def TweetScrape(HazardType):
   for df in tweets_df_list:
       df['Cleaned Tweets'] = np.vectorize(remove_pattern)(df[['Tweets']], r'@\w+')
 
-  from textblob import TextBlob
-  from textblob.sentiments import NaiveBayesAnalyzer
-  from textblob.np_extractors import ConllExtractor
+
+  tweets_df_list[HazardType]
+#   from textblob import TextBlob
+#   from textblob.sentiments import NaiveBayesAnalyzer
+#   from textblob.np_extractors import ConllExtractor
 
   # 1 way
-  def fetch_sentiment_using_textblob(text):
-      analysis = TextBlob(text)
-      return 'pos' if analysis.sentiment.polarity >= 0 else 'neg'
+#   def fetch_sentiment_using_textblob(text):
+#       analysis = TextBlob(text)
+#       return 'pos' if analysis.sentiment.polarity >= 0 else 'neg'
 
-  #Applying the function to get sentiment
-  for df in tweets_df_list:
-      df['Sentiment'] = df['Cleaned Tweets'].apply(fetch_sentiment_using_textblob)
+#   #Applying the function to get sentiment
+#   for df in tweets_df_list:
+#       df['Sentiment'] = df['Cleaned Tweets'].apply(fetch_sentiment_using_textblob)
 
   #Cleaned, date created and username
 
   return jsonify(tweets_df_list[HazardType])
 
-TweetScrape(HazardType)
+
+
+# @app.route('/', methods=['GET'])
+# def hello():
+#     return jsonify({"response":"This is Scraping Application"})
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", threaded=True, port=4000, debug = True)
 
 
