@@ -11,7 +11,9 @@ import datetime
 from dateutil.relativedelta import relativedelta
 import torch.optim as optim
 import matplotlib.pyplot as plt
+import os
 
+os.chdir("C:\\Users\Qing Rui\Desktop\BC3407 Business Transformation\Project\APIs Final\Sealevel Final")
 
 class Optimization:
         """
@@ -242,6 +244,7 @@ app = Flask(__name__)
 def sealevel(): #This is to query for the input from the user
     #Request for input
 
+
     def onehot_encode_pd(df, cols):
         for col in cols:
             dummies = pd.get_dummies(df[col], prefix=col)
@@ -285,22 +288,23 @@ def sealevel(): #This is to query for the input from the user
 
 
     ### Postman Inputs here
+    # data = {"date" : "2021-12-23T18:25:43-05:00"}
+
     data = request.get_json()
 
-    input_time = data['time'] # YYYY-MM-DD
-
+    input_time = data['date'] # YYYY-MM-DD
     new_date = input_time.split("T")[0]
-
     year, month, day = map(int, new_date.split('-'))
-
+    year = int(year) +1
     edate = datetime.date(year, 12, 31)
-    sdate = edate - datetime.timedelta(days= 2 * 364.5)
+    sdate = edate - datetime.timedelta(days= 2 * 365)
 
     # make a dataframe with range of sdate and edate
     df_future = pd.DataFrame(pd.date_range(sdate, edate, freq='d'))
     df_future.columns = ['time']
     df_future['value'] = 0 # it's just here because the function need it as an input
     df_future.set_index('time', inplace=True)
+
 
     # make features with datetime object
     df_future = (df_future
@@ -318,6 +322,8 @@ def sealevel(): #This is to query for the input from the user
     df_future = generate_cyclical_features(df_future, 'day', 31, 1)
     df_future = generate_cyclical_features(df_future, 'month', 12, 1)
     df_future = generate_cyclical_features(df_future, 'week_of_year', 52, 0)
+
+
 
     X_fut, y_fut = feature_label_split(df_future, 'value')
 
@@ -340,6 +346,7 @@ def sealevel(): #This is to query for the input from the user
     future = TensorDataset(X_fut_tens, y_fut_tens)
     future_loader = DataLoader(future, batch_size=32, shuffle=False, drop_last=True)
 
+
     # predict using evaluate function
 
     fut_predictions, fut_values = model.evaluate(
@@ -352,7 +359,7 @@ def sealevel(): #This is to query for the input from the user
     df_future_predict = format_predictions(fut_predictions, fut_values, X_fut, scaler)
     df_future_predict['time'] = df_future_predict.index
 
-    test = df_future_predict.loc[df_future_predict['time'] == input_time] ### YYYY-MM-DD
+    test = df_future_predict.loc[df_future_predict['time'] == new_date] ### YYYY-MM-DD
     x = test['prediction']
 
     pred_out = pd.cut(x, bins=[0,1600,1800,2000],
@@ -360,7 +367,7 @@ def sealevel(): #This is to query for the input from the user
 
     pred_label = pred_out[pred_out.transform(type) == str].values[0]
 
-    Sea_Intensity = [f"Predicted {pred_label} at {input_time}"]
+    Sea_Intensity = [f"Predicted {pred_label} at {new_date}"]
 
 
     return jsonify(Sea_Intensity)
